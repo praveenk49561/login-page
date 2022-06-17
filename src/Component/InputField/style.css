@@ -1,0 +1,35 @@
+.input-field-main-container {
+    display: flex;
+    height: max-content;
+    position: relative;
+    box-sizing: border-box;
+}
+.input-field-tag {
+    padding: 0.6rem 3rem;  
+    border: none;
+    border-bottom: 2px solid #dbdbdb;  
+    outline: none;
+    text-overflow: ellipsis;
+    position: relative;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.input-field-prefix {
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.input-field-suffix {
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+.button-tag {
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #ededed;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.button-tag:active {
+    outline: black;
+}
+
+.button-tag:hover {
+    background-color: #dbdbdb;
+}
