@@ -11,6 +11,7 @@ const LoginPage = () => {
     return <div className="login-page-main-container">
         <div className="login-page-left-container">
             <img className="login-page-left-container-img" src={sideImage} alt=""></img>
+            <a href="#" style={{ margin: '0 0.5rem 4rem 0.5rem' }}>Create account</a>
         </div>
         <div className="login-page-right-container">
             <div>

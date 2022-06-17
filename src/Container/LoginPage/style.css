@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .login-page-right-container {
@@ -63,7 +64,7 @@
 .login-page-social-link-field {
     display: flex;
     align-items: center;
-    margin: 4rem 0.5rem;
+    margin: 4rem 0.5rem 0 0.5rem;
     font-size: 1rem;
 }
 
@@ -116,5 +117,8 @@
     
     .login-page-right-container {
         width: 100%
+    }
+    .login-page-social-link-field {
+        margin: 4rem 0.5rem;
     }
 }
