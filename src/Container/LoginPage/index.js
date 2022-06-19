@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAddressCard, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faTwitter, faGoogle  } from "@fortawesome/free-brands-svg-icons";
@@ -8,6 +9,27 @@ import Button from "../../Component/Button";
 import sideImage from "../../Assets/Images/20944201.jpg";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+    const [data, setData] = useState({});
+    const [error, setError] = useState({});
+
+    const onChangeData = (event) => {
+        let updatedData = { ...data };
+        switch (event?.target?.name) {
+            case 'rememberMeField':
+                updatedData = { ...updatedData, [event.target.name]: event.target.checked };
+                break;
+            default:
+                updatedData = { ...updatedData, [event.target.name]: event.target.value };
+                break;
+        }
+        setData({ ...data, ...updatedData });
+    };
+
+    const onClickLogin = () => {
+        navigate('/todo_list');
+    };
+
     return <div className="login-page-main-container">
         <div className="login-page-left-container">
             <img className="login-page-left-container-img" src={sideImage} alt=""></img>
@@ -21,6 +43,8 @@ const LoginPage = () => {
                     className="login-page-name-field-tag"
                     type="text"
                     placeHolder="Your Name"
+                    name="userNameField"
+                    onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faUser} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
                 />
@@ -29,6 +53,8 @@ const LoginPage = () => {
                     className="login-page-name-field-tag"
                     type="password"
                     placeHolder="Password"
+                    name="passwordField"
+                    onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faLock} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
                 />
@@ -36,10 +62,13 @@ const LoginPage = () => {
                     classNameContainer="login-page-remember-me-field"
                     className="login-page-remember-me-tag"
                     label="Remember Me"
+                    name="rememberMeField"
+                    onChange={onChangeData}
                 />
                 <Button
                     classNameContainer="login-page-login-button-field"
                     className="login-page-login-button"
+                    onClick={onClickLogin}
                 >
                     Log In
                 </Button>

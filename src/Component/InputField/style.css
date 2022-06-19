@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 .input-field-tag {
-    padding: 0.6rem 3rem;  
+    padding: 0.6rem;  
     border: none;
     border-bottom: 2px solid #dbdbdb;  
     outline: none;
@@ -14,6 +14,18 @@
     width: 100%;
     font-size: inherit;
     font-weight: inherit;
+}
+
+.tag-prefix {
+    padding: 0.6rem 0.6rem 0.6rem 3rem;  
+}
+
+.tag-suffix {
+    padding: 0.6rem 3rem 0.6rem 0.6rem;  
+}
+
+.tag-prefix-suffix {
+    padding: 0.6rem 3rem;  
 }
 
 .input-field-prefix {

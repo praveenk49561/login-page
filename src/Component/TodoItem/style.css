@@ -1,0 +1,31 @@
+.todo-item-main-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 1.2rem;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 0.2rem;
+}
+
+.todo-item-main-container:hover {
+    background-color: #e2e9fc;
+    cursor: pointer;
+}
+
+.todo-item-item {
+    margin: 1rem;
+}
+
+.todo-item-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.todo-item-delete-icon:hover{
+    color: rgb(226, 84, 84);
+}
+
+.todo-item-content-line-through {
+    text-decoration: line-through;
+}

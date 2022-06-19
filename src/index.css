@@ -20,4 +20,6 @@ code {
 @import './Component/Button/style.css';
 @import './Component/CheckboxField/style.css';
 @import './Component/InputField/style.css';
+@import './Component/TodoItem/style.css';
 @import './Container/LoginPage/style.css';
+@import './Container/TodoPage/style.css';
