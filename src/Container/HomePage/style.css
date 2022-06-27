@@ -1,0 +1,33 @@
+.home-page-main-container {
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.home-page-sub-container {
+    padding: 1rem;
+}
+
+.home-page-dash-header, .loading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0.5rem;
+    color: #3b4452;
+}
+
+.home-page-dash-header {
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.home-page-dash-cards-container{
+    display: flex;
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+
+.home-page-dash-cards-container > div {
+    animation: slideDown 0.9s ease-in-out;
+}
+
+

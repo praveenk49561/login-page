@@ -1,0 +1,41 @@
+.info-card {
+    padding: 0.8rem;
+    background-color: white;
+    flex: 20%;
+    min-height: 100px;
+    position: relative;
+    border-radius: 0.4rem;
+    border: 0.5px solid rgba(128, 128, 128, 0.274);
+    margin: 0.5rem;
+    z-index: 0;
+}
+
+.info-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+}
+
+.info-card-name {
+    font-weight: 600;
+    color: #677A8E;
+    font-size: large;
+}
+
+.info-card-year {
+    position: absolute;
+    bottom: 0.8rem;
+    color: #677A8E;
+}
+
+.info-card-members {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    display: flex;
+    align-items: center;
+    color: #5473E3;
+}
+
+.info-card-members > div {
+    margin: 0.1rem;
+}

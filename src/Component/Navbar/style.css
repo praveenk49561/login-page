@@ -1,0 +1,46 @@
+.nav-bar-main-container{
+    padding: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    overflow: hidden;
+    height: max-content;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar-header-container {
+    position: relative;
+}
+
+.nav-bar-circle {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 1rem;
+    background-color: blueviolet;
+    position: absolute;
+    top: -0.5rem;
+}
+
+.nav-bar-rec {
+    height: 1.5rem;
+    width: 2.5rem;
+    border-radius: 0.2rem;
+    background-color: rgba(166,183,247, 1);
+    transform: rotate(-23deg);
+    position: absolute;
+    left: -1.8rem;
+    top: 0.8rem;
+}
+
+.nav-bar-header {
+    position: relative;
+    left: 1rem;
+    top: -0.2rem;
+    font-size: 1.5rem;
+}
+
+.nav-bar-signout:hover {
+    cursor: pointer;
+    color: dodgerblue;
+}

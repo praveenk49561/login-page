@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAddressCard, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faTwitter, faGoogle  } from "@fortawesome/free-brands-svg-icons";
@@ -7,11 +7,14 @@ import InputField from "../../Component/InputField";
 import CheckboxField from "../../Component/CheckboxField";
 import Button from "../../Component/Button";
 import sideImage from "../../Assets/Images/20944201.jpg";
+import  { doPost } from '../../Utils/fetchWrapper';
 
 const LoginPage = () => {
     const navigate = useNavigate();
+    
     const [data, setData] = useState({});
     const [error, setError] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const onChangeData = (event) => {
         let updatedData = { ...data };
@@ -27,13 +30,20 @@ const LoginPage = () => {
     };
 
     const onClickLogin = () => {
-        navigate('/todo_list');
+        setIsLoading(true);
+        doPost('/auth', data).then((res) => {
+            navigate('/home_page');
+            setIsLoading(false);
+        }).catch((error) => {
+            console.log(error);
+            setIsLoading(false);
+        })
     };
 
     return <div className="login-page-main-container">
         <div className="login-page-left-container">
             <img className="login-page-left-container-img" src={sideImage} alt=""></img>
-            <a href="#" className="login-page-left-container-link">Create account</a>
+            <Link to={'/sign_up'} className="login-page-left-container-link">Create Account</Link>
         </div>
         <div className="login-page-right-container">
             <div>
