@@ -26,7 +26,7 @@ const LoginPage = () => {
     };
 
     const onClickCreate = () => {
-        doPost('/user/create', data).then((res) => {
+        doPost('/users/create', data).then((res) => {
             navigate('/');
         }).catch((error) => {
             console.log(error);
