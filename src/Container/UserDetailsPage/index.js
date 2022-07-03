@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faAddressCard, faLock, faEnvelope, faMobile, faIdBadge } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faAddressCard, faLock, faEnvelope, faMobile, faIdBadge, faEye, faEyeLowVision } from "@fortawesome/free-solid-svg-icons";
 import InputField from "../../Component/InputField";
 import Button from "../../Component/Button";
 import Loader from "../../Component/Loader";
@@ -15,6 +15,7 @@ const UserDetailsPage = (props) => {
     const location = useLocation();
     const user_Id = location?.state?.id;
     const [data, setData] = useState({});
+    const [viewPassword, setViewPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState({});
 
@@ -81,6 +82,10 @@ const UserDetailsPage = (props) => {
 
     const onClickBack = () => {
         navigate('/home_page');
+    }
+
+    const onToggleViewPassword = () => {
+        setViewPassword(!viewPassword);
     }
      
 
@@ -156,13 +161,14 @@ const UserDetailsPage = (props) => {
                         classNameContainer="user-details-input-field"
                         className="user-details-input-tag"
                         classNamePrefix="user-details-input-prefix"
-                        type="password"
+                        classNameSuffix="user-details-input-suffix"
+                        type={viewPassword ? "text" : "password"}
                         placeHolder="Password"
                         name="passwordField"
                         onChange={onChangeData}
                         value={data?.passwordField ?? ''}
                         prefix={<FontAwesomeIcon icon={faLock} />}
-                        // suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
+                        suffix={<FontAwesomeIcon className="user-details-input-view-icon" onClick={onToggleViewPassword} color="#818181" icon={viewPassword ? faEyeLowVision : faEye} />}
                 />
                 </div>
                 <div style={{ flex: '0 1 100%', display: 'flex', justifyContent: 'center' }}>
