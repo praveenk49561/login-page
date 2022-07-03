@@ -26,7 +26,15 @@ const LoginPage = () => {
     };
 
     const onClickCreate = () => {
-        doPost('/users/create', data).then((res) => {
+        const postableData = {
+            name: data?.userNameField ?? '',
+            password: data?.passwordField ?? '',
+            empId: data?.userEmpIdField ?? '',
+            emailId: data?.userEmailIdField ?? '',
+            mobileNo: data?.userMobileNoField ?? '',
+
+        }
+        doPost('/users', postableData).then((res) => {
             navigate('/');
         }).catch((error) => {
             console.log(error);
@@ -46,6 +54,7 @@ const LoginPage = () => {
                     type="text"
                     placeHolder="Your Name"
                     name="userNameField"
+                    value={data?.userNameField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faUser} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -56,6 +65,7 @@ const LoginPage = () => {
                     type="text"
                     placeHolder="Your Emp Id"
                     name="userEmpIdField"
+                    value={data?.userEmpIdField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faIdBadge} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -65,7 +75,8 @@ const LoginPage = () => {
                     className="signup-page-name-field-tag"
                     type="email"
                     placeHolder="Your Email Id"
-                    name="userEmpIdField"
+                    name="userEmailIdField"
+                    value={data?.userEmailIdField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faEnvelope} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -76,6 +87,7 @@ const LoginPage = () => {
                     type="text"
                     placeHolder="Your Mobile No"
                     name="userMobileNoField"
+                    value={data?.userMobileNoField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faMobile} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -86,6 +98,7 @@ const LoginPage = () => {
                     type="password"
                     placeHolder="Password"
                     name="passwordField"
+                    value={data?.passwordField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faLock} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}

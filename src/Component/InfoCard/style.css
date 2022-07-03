@@ -1,7 +1,6 @@
-.info-card {
+.info-card-container {
     padding: 0.8rem;
     background-color: white;
-    flex: 20%;
     min-height: 100px;
     position: relative;
     border-radius: 0.4rem;
@@ -10,7 +9,7 @@
     z-index: 0;
 }
 
-.info-card:hover {
+.info-card-container:hover {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     cursor: pointer;
 }
@@ -21,21 +20,17 @@
     font-size: large;
 }
 
-.info-card-year {
+.info-card-sub-name-one {
     position: absolute;
     bottom: 0.8rem;
     color: #677A8E;
 }
 
-.info-card-members {
+.info-card-sub-name-two {
     position: absolute;
     bottom: 0.8rem;
     right: 0.8rem;
     display: flex;
     align-items: center;
     color: #5473E3;
-}
-
-.info-card-members > div {
-    margin: 0.1rem;
 }

@@ -1,13 +1,11 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
 
 const InfoCard = (props) => {
-    const { name, year, members } = props;
-    return <div className="info-card">
-        <div className="info-card-name">{name}</div>
-        <div className="info-card-year">{year}</div>
-        <div className="info-card-members"><div className="info-card-members-count">{members}</div><div className="info-card-members-icon"><FontAwesomeIcon icon={faUserFriends} /></div></div>
+    const { name, subNameOne, subNameTwo, className, containerClassName, subNameOneClasName, subNameTwoClassName } = props;
+    return <div className={`info-card-container ${containerClassName}`}>
+        <div className={`info-card-name ${className}`}>{name}</div>
+        <div className={`info-card-sub-name-one ${subNameOneClasName}`}>{subNameOne}</div>
+        <div className={`info-card-sub-name-two ${subNameTwoClassName}`}>{subNameTwo}</div>
     </div>;
 };
 

@@ -1,0 +1,41 @@
+.projects-panel-main-container {
+    min-height: 15rem;
+    transition: all 3s ease-in-out;
+}
+.projects-panel-dash-header {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0.5rem;
+    color: #3b4452;
+}
+
+.projects-panel-dash-header {
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.projects-panel-dash-cards-container{
+    display: flex;
+    padding: 1.5rem 0;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.projects-panel-dash-cards-container > div {
+    flex: 0 1 20%;
+}
+
+.projects-panel-cards-sub-two > div {
+    margin: 0.1rem;
+}
+
+
+.projects-panel-dash-cards-container > div {
+    animation: slideDown 0.9s ease-in-out;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .projects-panel-dash-cards-container > div {
+        flex: 0 1 50%;
+    }
+}

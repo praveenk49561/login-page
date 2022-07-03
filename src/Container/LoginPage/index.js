@@ -54,6 +54,7 @@ const LoginPage = () => {
                     type="text"
                     placeHolder="Your Name"
                     name="userNameField"
+                    value={data?.userNameField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faUser} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -64,6 +65,7 @@ const LoginPage = () => {
                     type="password"
                     placeHolder="Password"
                     name="passwordField"
+                    value={data?.passwordField ?? ''}
                     onChange={onChangeData}
                     prefix={<FontAwesomeIcon icon={faLock} />}
                     suffix={<FontAwesomeIcon color="#818181" icon={faAddressCard} />}
@@ -73,6 +75,7 @@ const LoginPage = () => {
                     className="login-page-remember-me-tag"
                     label="Remember Me"
                     name="rememberMeField"
+                    value={data?.rememberMeField ?? ''}
                     onChange={onChangeData}
                 />
                 <Button

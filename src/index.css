@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 @font-face {
   font-family: Hussar-Bold;
   src: url(./Assets/Fonts/hussarboldweb.otf);
@@ -24,9 +25,13 @@ code {
 @import './Component/InputField/style.css';
 @import './Component/TodoItem/style.css';
 @import './Component/Navbar/style.css';
+@import './Component/Loader/style.css';
+@import './Component/InfoCard/style.css';
 
 @import './Container/LoginPage/style.css';
 @import './Container/TodoPage/style.css';
 @import './Container/SignupPage/style.css';
 @import './Container/HomePage/style.css';
-@import './Component/InfoCard/style.css';
+@import './Container/ProjectsPanel/styles.css';
+@import './Container/UsersPanel/styles.css';
+@import './Container/UserDetailsPage/styles.css';
