@@ -5,16 +5,18 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import InfoCard from '../../Component/InfoCard';
 import Loader from '../../Component/Loader';
 import { doGet } from '../../Utils/fetchWrapper';
+import { useRef } from 'react';
 
 const UsersPanel = () => {
 
     const navigate = useNavigate();
     const [usersList, setUsersList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    let abortController = new AbortController();
 
     useEffect(() => {
         setIsLoading(true);
-        doGet('/users/').then((res) => {
+        doGet('/users/', abortController).then((res) => {
             setUsersList([...res?.data?.users]);
             setIsLoading(false);
         })
@@ -22,6 +24,12 @@ const UsersPanel = () => {
             console.log(error);
             setIsLoading(false);
         })
+
+        return () => {
+            if (abortController) {
+                abortController?.abort();
+            }
+        }
     }, []);
 
     const onEditUser = (id) => {

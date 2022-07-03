@@ -16,9 +16,10 @@ function timeoutPromise(promise, timeout, error) {
   });
 }
 
-export const doGet = (url, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
+export const doGet = (url, abortController, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
   urlPrefix.concat(url),
   Object.assign({}, {
+    signal: abortController?.signal,
     method: 'get',
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
@@ -36,9 +37,10 @@ export const doGet = (url, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPro
   });
 
 
-export const doPost = (url, body, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
+export const doPost = (url, body, abortController, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
   urlPrefix.concat(url),
   Object.assign({}, {
+    signal: abortController?.signal,
     method: 'post',
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
@@ -56,9 +58,10 @@ export const doPost = (url, body, timeOut = TIMEOUT, urlPrefix = baseUrl) => tim
     return response.then((error) => { throw error; });
   });
 
-  export const doPut = (url, body, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
+  export const doPut = (url, body, abortController, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
     urlPrefix.concat(url),
     Object.assign({}, {
+      signal: abortController?.signal,
       method: 'put',
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
@@ -76,9 +79,10 @@ export const doPost = (url, body, timeOut = TIMEOUT, urlPrefix = baseUrl) => tim
       return response.then((error) => { throw error; });
     });
 
-  export const doDelete = (url, body, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
+  export const doDelete = (url, body, abortController, timeOut = TIMEOUT, urlPrefix = baseUrl) => timeoutPromise(fetch(
     urlPrefix.concat(url),
     Object.assign({}, {
+      signal: abortController?.signal,
       method: 'delete',
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',

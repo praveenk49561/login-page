@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect, useRef }from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import InfoCard from "../../Component/InfoCard";
@@ -9,16 +9,23 @@ import { doGet } from "../../Utils/fetchWrapper";
 const ProjectsPanel = () => {
     const [projectList, setProjectList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    let abortController = new AbortController();
 
     useEffect(() => {
         setIsLoading(true);
-        doGet('/projects').then((res) => {
+        doGet('/projects', abortController).then((res) => {
             setProjectList([...res?.data?.projects]);
             setIsLoading(false);
         }).catch((error) => {
             console.log(error);
             setIsLoading(false);
         })
+
+        return () => {
+            if (abortController) {
+                abortController?.abort();
+            }
+        }
     }, []);
 
     return <div className="projects-panel-main-container">
