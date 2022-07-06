@@ -2,7 +2,18 @@
     overflow-x: hidden;
 }
 
-@keyframes slideIn {
+@keyframes slideInRL {
+  0% {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLR {
   0% {
     transform: translateX(-30px);
     opacity: 0;

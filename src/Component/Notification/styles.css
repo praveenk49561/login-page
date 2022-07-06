@@ -1,0 +1,37 @@
+.notification-container-002 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+.notify-bar-main-container {
+    width: 20rem;
+    height: max-content;
+    margin: 0.5rem;
+    border-radius: 0.2rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    position: relative;
+    animation: slideInRL 0.3s ease-in-out;
+}
+
+.notify-bar-main-container > .notify-bar-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #3b445277;
+}
+
+.notify-bar-main-container > .notify-bar-content {
+    width: 95%;
+    overflow: hidden;
+}
+
+.notify-bar-main-container > .notify-bar-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    cursor: pointer;
+}

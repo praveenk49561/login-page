@@ -7,10 +7,16 @@
     font-weight: 500;
     margin: 0.5rem;
     color: #3b4452;
+    display: flex;
+    align-items: center;
+}
+
+.projects-panel-dash-header > div {
+    margin: 0 0.2rem;
 }
 
 .projects-panel-dash-header {
-    animation: slideIn 0.3s ease-in-out;
+    animation: slideInLR 0.3s ease-in-out;
 }
 
 .projects-panel-dash-cards-container{

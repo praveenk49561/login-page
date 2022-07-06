@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAddressCard, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -6,8 +6,10 @@ import { faFacebookF, faTwitter, faGoogle  } from "@fortawesome/free-brands-svg-
 import InputField from "../../Component/InputField";
 import CheckboxField from "../../Component/CheckboxField";
 import Button from "../../Component/Button";
+import Notification from "../../Component/Notification";
 import sideImage from "../../Assets/Images/20944201.jpg";
 import  { doPost } from '../../Utils/fetchWrapper';
+import Loader from "../../Component/Loader";
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -36,6 +38,7 @@ const LoginPage = () => {
             setIsLoading(false);
         }).catch((error) => {
             console.log(error);
+            Notification(error?.message || '', 'Error');
             setIsLoading(false);
         })
     };
@@ -82,8 +85,9 @@ const LoginPage = () => {
                     classNameContainer="login-page-login-button-field"
                     className="login-page-login-button"
                     onClick={onClickLogin}
+                    disabled={isLoading}
                 >
-                    Log In
+                    {isLoading ? 'Logging In...' : 'Log In' }
                 </Button>
                 <div className="login-page-social-link-field">
                     <div className="login-page-social-link-header">Or login with</div>

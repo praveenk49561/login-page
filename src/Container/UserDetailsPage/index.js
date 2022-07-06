@@ -6,6 +6,7 @@ import InputField from "../../Component/InputField";
 import Button from "../../Component/Button";
 import Loader from "../../Component/Loader";
 import Navbar from "../../Component/Navbar";
+import Notification from "../../Component/Notification";
 import { doGet, doPut, doDelete } from "../../Utils/fetchWrapper";
 
 
@@ -31,6 +32,7 @@ const UserDetailsPage = (props) => {
             setIsLoading(false);
         }).catch((error) => {
             console.log(error);
+            Notification(error?.message || '', 'Error');
             setIsLoading(false);
         })
     }, []);
@@ -64,7 +66,9 @@ const UserDetailsPage = (props) => {
         if (user_Id) {
             doPut(`/users/${user_Id}`, postableData).then((res) => {
                 navigate('/home_page');
+                Notification(res?.message || '', 'Success');
             }).catch((error) => {
+                Notification(error?.message || '', 'Error');
                 console.log(error);
             })
         }
@@ -74,8 +78,10 @@ const UserDetailsPage = (props) => {
         if (user_Id) {
             doDelete(`/users/${user_Id}`).then((res) => {
                 navigate('/home_page');
+                Notification(res?.message || '', 'Success');
             }).catch((error) => {
                 console.log(error);
+                Notification(error?.message || '', 'Error');
             });
         }
     };

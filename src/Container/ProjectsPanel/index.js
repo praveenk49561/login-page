@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef }from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import { faUserFriends, faProjectDiagram } from "@fortawesome/free-solid-svg-icons";
 import InfoCard from "../../Component/InfoCard";
 import Loader from "../../Component/Loader";
 import { doGet } from "../../Utils/fetchWrapper";
@@ -29,7 +29,10 @@ const ProjectsPanel = () => {
     }, []);
 
     return <div className="projects-panel-main-container">
-        <div className="projects-panel-dash-header">Ongoing Projects</div>
+        <div className="projects-panel-dash-header">
+            <div><FontAwesomeIcon color="#5473E3" icon={faProjectDiagram} /></div>
+            <div>Ongoing Projects</div>
+        </div>
         {isLoading && <Loader />}
         {!isLoading && <div className="projects-panel-dash-cards-container">
             {projectList?.map((ep) => <div key={ep?.id}><InfoCard 

@@ -27,6 +27,7 @@ code {
 @import './Component/Navbar/style.css';
 @import './Component/Loader/style.css';
 @import './Component/InfoCard/style.css';
+@import './Component/Notification/styles.css';
 
 @import './Container/LoginPage/style.css';
 @import './Container/TodoPage/style.css';

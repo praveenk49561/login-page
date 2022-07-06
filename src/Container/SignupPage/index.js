@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faAddressCard, faLock, faEnvelope, faMobile, faIdBadge } from "@fortawesome/free-solid-svg-icons";
 import InputField from "../../Component/InputField";
 import Button from "../../Component/Button";
+import Notification from "../../Component/Notification";
 import sideImage from "../../Assets/Images/Mobile-login.jpg";
 import { doPost } from "../../Utils/fetchWrapper";
 
@@ -11,6 +12,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({});
     const [error, setError] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const onChangeData = (event) => {
         let updatedData = { ...data };
@@ -34,10 +36,15 @@ const LoginPage = () => {
             mobileNo: data?.userMobileNoField ?? '',
 
         }
+        setIsLoading(true);
         doPost('/users', postableData).then((res) => {
             navigate('/');
+            Notification(res?.message || '', "Success");
+            setIsLoading(false);
         }).catch((error) => {
             console.log(error);
+            Notification(error?.message || '', "Error");
+            setIsLoading(false);
         })
     };
 
@@ -115,7 +122,7 @@ const LoginPage = () => {
                     className="signup-page-login-button"
                     onClick={onClickCreate}
                 >
-                    Create
+                    {isLoading ? 'Creating...' : 'Create'}
                 </Button>
                 {/* <div className="signup-page-social-link-field">
                     <div className="signup-page-social-link-header">Or login with</div>
