@@ -8,6 +8,7 @@ const Navbar = (props) => {
     const navigate = useNavigate();
     const onClickSignout = () => {
         navigate('/');
+        sessionStorage.access = "";
     }
     return <div className="nav-bar-main-container">
         <div className="nav-bar-header-container">

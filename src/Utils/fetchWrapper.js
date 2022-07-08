@@ -24,6 +24,8 @@ export const doGet = (url, abortController, timeOut = TIMEOUT, urlPrefix = baseU
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
       Accept: 'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
+      Authorization: `Bearer ${sessionStorage.access}`,
     }
   }),
 ), timeOut, 504)
@@ -45,6 +47,8 @@ export const doPost = (url, body, abortController, timeOut = TIMEOUT, urlPrefix 
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
       Accept: 'application/json; charset=UTF-8',
+      'Access-Control-Allow-Origin': '*',
+      Authorization: `Bearer ${sessionStorage.access}`,
     },
     body: JSON.stringify(body),
   }),
@@ -66,6 +70,8 @@ export const doPost = (url, body, abortController, timeOut = TIMEOUT, urlPrefix 
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         Accept: 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: `Bearer ${sessionStorage.access}`,
       },
       body: JSON.stringify(body),
     }),
@@ -87,6 +93,8 @@ export const doPost = (url, body, abortController, timeOut = TIMEOUT, urlPrefix 
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         Accept: 'application/json; charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: `Bearer ${sessionStorage.access}`,
       },
       body: JSON.stringify(body),
     }),
