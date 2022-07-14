@@ -1,0 +1,6 @@
+.toast-container-ext-cls{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}

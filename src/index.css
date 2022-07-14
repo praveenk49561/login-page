@@ -17,7 +17,7 @@ code {
   font-family: Hussar-Bold;
   src: url(./Assets/Fonts/hussarboldweb.otf);
 }
-
+@import 'bootstrap/dist/css/bootstrap.min.css';
 @import './App.css';
 
 @import './Component/Button/style.css';
